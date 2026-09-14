@@ -2,6 +2,10 @@ import type { MetadataRoute } from "next";
 import { programasAcademicos } from "@/content/oferta-academica";
 import { actividades } from "@/content/actividades";
 
+// Requerido por `output: "export"` — sitemap.xml se genera una vez en build,
+// no por request (no hay servidor Node en GitHub Pages).
+export const dynamic = "force-static";
+
 // TODO: reemplazar por el dominio definitivo una vez el INCO lo confirme.
 const BASE_URL = "https://www.inco.edu.sv";
 
