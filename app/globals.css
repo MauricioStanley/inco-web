@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface text-ink font-body antialiased;
+  /* Cuerpo cómodo para párrafos largos en español — el leading por defecto
+     del navegador (~1.2) queda apretado para texto de lectura extensa. */
+  line-height: 1.65;
+}
+
+/*
+ * Tipografía óptica: el tracking (letter-spacing) escala según el tamaño
+ * real en el que aparece cada nivel, no según la etiqueta semántica. Los
+ * títulos grandes necesitan tracking negativo (las letras se separan
+ * demasiado al crecer); los títulos pequeños (h3/h4, usados en tarjetas a
+ * ~18px) casi no lo necesitan. Los valores son más suaves que los de una
+ * sans grotesca (Sora): Newsreader es una serif editorial que YA lee más
+ * apretada por naturaleza — sobre-apretarla choca los remates de las letras
+ * en vez de dar ese aire "revista" que se busca. El leading de h2/h3/h4 ya
+ * llega bien afinado de fábrica: las utilidades text-lg…text-3xl de
+ * Tailwind empaquetan un line-height cada vez más apretado a medida que el
+ * tamaño crece, así que solo el H1 (fuera de esa escala, ver `.text-display`)
+ * necesita un override explícito.
+ */
+h1,
+h2,
+h3,
+h4 {
+  @apply font-heading;
+  text-wrap: balance;
+  font-optical-sizing: auto;
+}
+
+h1 {
+  letter-spacing: -0.012em;
+  line-height: 1.08;
+}
+
+h2 {
+  letter-spacing: -0.006em;
+}
+
+h3,
+h4 {
+  letter-spacing: 0;
+}
+
+/* Título "display": para el H1 del Hero, que vive fuera de la escala normal
+   de Tailwind. clamp() lo hace escalar continuamente con el viewport en vez
+   de saltar entre 3 breakpoints fijos, y el tracking va con él. */
+.text-display {
+  font-size: clamp(2rem, 1rem + 4.5vw, 4.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+}
+
+a {
+  text-underline-offset: 3px;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/*
+ * Textura de grano muy sutil sobre toda la página, para que los bloques de
+ * color plano (verde/dorado institucionales) no se sientan digitales y
+ * esterilizados. No interfiere con clics ni con el contenido.
+ */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/*
+ * Chrome flotante (navbar) como material translúcido: el contenido se
+ * desliza debajo en vez de quedar oculto tras una barra sólida. Se vuelve
+ * un poco más opaco/oscuro al hacer scroll para separarse del contenido
+ * que empieza a pasar por debajo (jerarquía de material, no un borde duro).
+ */
+.glass-nav {
+  background-color: rgba(27, 94, 58, 0.82);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  transition: background-color 0.3s ease;
+  /* iPhones de borde a borde: sin esto, el notch/Dynamic Island se come
+     una porción de la barra fija en vez de tener su propio margen. */
+  padding-top: env(safe-area-inset-top);
+}
+.glass-nav.is-scrolled {
+  background-color: rgba(15, 61, 38, 0.78);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-nav,
+  .glass-nav.is-scrolled {
+    background-color: #0f3d26;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * Anillo de foco universal ("doble contorno"): un halo claro pegado al
+ * elemento más un anillo verde por fuera. Así queda visible tanto sobre
+ * fondos claros como sobre el navbar/footer en verde, sin depender de un
+ * único color de outline que solo funcione en un tipo de fondo.
+ */
+:focus-visible {
+  outline: none;
+  border-radius: 0.25rem;
+  box-shadow:
+    0 0 0 2px #faf9f6,
+    0 0 0 4px #1b5e3a;
+}

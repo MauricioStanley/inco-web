@@ -1,0 +1,330 @@
+<title>Rework INCO — Bitácora</title>
+<style>
+  :root{
+    --primary:#1B5E3A; --primary-dark:#0F3D26; --primary-tint:#E7F0EA;
+    --accent:#F2B705; --accent-dark:#B8850A;
+    --surface:#FAF9F6; --surface-alt:#FFFFFF;
+    --ink:#1A1A1A; --ink-soft:#4A4A4A; --ink-faint:#8A8A82;
+    --border:#E2DFD8;
+    --ok:#2E7D46; --warn:#B8850A;
+    --bg: var(--surface); --card: var(--surface-alt); --text: var(--ink); --text-soft: var(--ink-soft);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#12160F; --card:#1B2118; --text:#F2F1EA; --text-soft:#B9C0B4; --border:#2B3327;
+      --surface:#12160F; --surface-alt:#1B2118; --ink:#F2F1EA; --ink-soft:#B9C0B4; --ink-faint:#7C8578;
+      --primary-tint:#1E2C22;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12160F; --card:#1B2118; --text:#F2F1EA; --text-soft:#B9C0B4; --border:#2B3327;
+    --surface:#12160F; --surface-alt:#1B2118; --ink:#F2F1EA; --ink-soft:#B9C0B4; --ink-faint:#7C8578;
+    --primary-tint:#1E2C22;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap');
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Inter', system-ui, sans-serif; font-size:15.5px; line-height:1.6;
+  }
+  h1,h2,h3,h4{ font-family:'Sora', sans-serif; text-wrap:balance; margin:0; color:var(--text); }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+  a{ color:var(--primary); }
+  :root[data-theme="dark"] a, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) a{ color:#7FD99A; } }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 24px 96px; }
+
+  /* ---------- header ---------- */
+  header.hero{
+    background: linear-gradient(155deg, var(--primary) 0%, var(--primary-dark) 70%);
+    position:relative; overflow:hidden; color:#fff; padding:56px 24px 44px;
+  }
+  header.hero::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(242,183,5,.28), transparent 42%),
+      radial-gradient(circle at 88% 12%, rgba(255,255,255,.10), transparent 38%);
+  }
+  header.hero::after{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.08;
+    background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .hero-inner{ max-width:920px; margin:0 auto; position:relative; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:600;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--accent);
+    background:rgba(0,0,0,.18); border:1px solid rgba(242,183,5,.35);
+    padding:5px 12px; border-radius:999px; margin-bottom:18px;
+  }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--accent); }
+  h1.title{ font-size:clamp(28px,4.6vw,42px); font-weight:800; letter-spacing:-0.02em; max-width:14ch; }
+  .subtitle{ margin-top:12px; max-width:56ch; color:rgba(255,255,255,.88); font-size:16.5px; }
+  .stat-row{ display:flex; flex-wrap:wrap; gap:28px; margin-top:32px; }
+  .stat b{ display:block; font-family:'Sora',sans-serif; font-size:26px; font-weight:700; }
+  .stat span{ font-size:12.5px; color:rgba(255,255,255,.72); text-transform:uppercase; letter-spacing:.06em; }
+  .stat .arrow{ color:var(--accent); font-weight:700; }
+
+  /* ---------- sections ---------- */
+  section{ padding:48px 0 8px; border-top:1px solid var(--border); }
+  section:first-of-type{ border-top:none; }
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
+  .section-head h2{ font-size:22px; font-weight:700; }
+  .section-num{ font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--ink-faint); letter-spacing:.05em; }
+
+  /* ---------- phase timeline ---------- */
+  .phase{ display:grid; grid-template-columns:64px 1fr; gap:18px; padding:18px 0; border-bottom:1px dashed var(--border); }
+  .phase:last-child{ border-bottom:none; }
+  .phase-n{ font-family:'Sora',sans-serif; font-weight:800; font-size:20px; color:var(--primary); }
+  :root[data-theme="dark"] .phase-n, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .phase-n{ color:#7FD99A; } }
+  .phase h3{ font-size:16.5px; font-weight:700; margin-bottom:4px; }
+  .phase p{ margin:0; color:var(--text-soft); font-size:14.5px; }
+  .phase .tag{
+    display:inline-block; margin-top:8px; font-size:11.5px; font-weight:600; letter-spacing:.03em;
+    padding:3px 9px; border-radius:6px; background:var(--primary-tint); color:var(--primary);
+  }
+  :root[data-theme="dark"] .phase .tag, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .phase .tag{ color:#9FE8B5; } }
+  .phase .tag.warn{ background:rgba(242,183,5,.16); color:var(--accent-dark); }
+
+  /* ---------- callout ---------- */
+  .callout{
+    background:var(--card); border:1px solid var(--border); border-left:3px solid var(--accent-dark);
+    border-radius:10px; padding:16px 18px; margin:20px 0; font-size:14.5px;
+  }
+  .callout b{ display:block; margin-bottom:4px; font-size:13.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--accent-dark); }
+
+  /* ---------- design tokens ---------- */
+  .swatches{ display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:14px; margin-top:6px; }
+  .swatch{ border-radius:10px; overflow:hidden; border:1px solid var(--border); }
+  .swatch .fill{ height:56px; }
+  .swatch .label{ padding:8px 10px; background:var(--card); font-size:12px; }
+  .swatch .label b{ display:block; font-size:12.5px; }
+  .swatch .label .mono{ color:var(--ink-faint); font-size:11px; }
+
+  .type-row{ display:flex; align-items:baseline; gap:16px; padding:14px 0; border-bottom:1px solid var(--border); }
+  .type-row:last-child{ border-bottom:none; }
+  .type-row .fam{ width:120px; flex-shrink:0; font-size:12.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.05em; }
+  .type-row .sample{ font-size:22px; }
+
+  /* ---------- sitemap tree ---------- */
+  .tree{ font-size:14px; }
+  .tree ul{ list-style:none; margin:0; padding-left:22px; border-left:1px dashed var(--border); }
+  .tree > ul{ padding-left:0; border-left:none; }
+  .tree li{ margin:6px 0; position:relative; }
+  .tree li.root > span{ font-weight:700; color:var(--primary); }
+  :root[data-theme="dark"] .tree li.root > span, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .tree li.root > span{ color:#7FD99A; } }
+  .tree .path{ color:var(--ink-faint); font-family:'JetBrains Mono',monospace; font-size:12px; margin-left:8px; }
+
+  /* ---------- photo status grid ---------- */
+  .photo-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; margin-top:6px; }
+  .photo-item{ border:1px solid var(--border); border-radius:10px; padding:12px; background:var(--card); }
+  .photo-item .name{ font-size:13.5px; font-weight:600; margin-bottom:6px; }
+  .status{ display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:600; }
+  .status.real{ color:var(--ok); }
+  .status.ref{ color:var(--ink-faint); }
+  .status .dot{ width:7px; height:7px; border-radius:50%; }
+  .status.real .dot{ background:var(--ok); }
+  .status.ref .dot{ background:var(--ink-faint); }
+
+  /* ---------- checklist ---------- */
+  .checklist{ display:flex; flex-direction:column; gap:0; margin-top:6px; }
+  .check{ display:flex; gap:12px; padding:11px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+  .check:last-child{ border-bottom:none; }
+  .check .box{ width:18px; height:18px; border-radius:5px; border:1.5px solid var(--ink-faint); flex-shrink:0; margin-top:2px; }
+  .check.done .box{ background:var(--primary); border-color:var(--primary); position:relative; }
+  .check.done .box::after{ content:"✓"; position:absolute; inset:0; color:#fff; font-size:12px; display:flex; align-items:center; justify-content:center; }
+  .check .txt b{ display:block; font-size:14px; }
+  .check .txt span{ font-size:13px; color:var(--text-soft); }
+
+  /* ---------- stack pills ---------- */
+  .pills{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .pill{ font-family:'JetBrains Mono',monospace; font-size:12.5px; background:var(--card); border:1px solid var(--border); padding:5px 11px; border-radius:7px; }
+
+  /* ---------- file tree ---------- */
+  pre.filetree{
+    background:var(--card); border:1px solid var(--border); border-radius:10px;
+    padding:16px 18px; font-size:12.5px; overflow-x:auto; line-height:1.7; color:var(--text-soft);
+  }
+  pre.filetree b{ color:var(--text); }
+
+  footer{ margin-top:56px; padding-top:24px; border-top:1px solid var(--border); font-size:13px; color:var(--ink-faint); }
+
+  @media (max-width:600px){
+    .type-row{ flex-direction:column; gap:4px; }
+    .type-row .fam{ width:auto; }
+  }
+</style>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="dot"></span> Rework web · Instituto Nacional de Comercio</div>
+    <h1 class="title">Bitácora completa del proyecto</h1>
+    <p class="subtitle">De la auditoría del sitio original en Google Sites a un sitio Next.js nuevo, verificado en contenido, accesibilidad, SEO y diseño — con fotos reales del INCO ya integradas.</p>
+    <div class="stat-row">
+      <div class="stat"><b>12</b><span>Fases completadas</span></div>
+      <div class="stat"><b>26</b><span>Rutas construidas</span></div>
+      <div class="stat"><b>5.3 <span class="arrow">→</span> 8.7</b><span>Calificación /10</span></div>
+      <div class="stat"><b>0</b><span>Enlaces rotos</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <div class="section-head"><h2>Cómo llegamos aquí</h2><span class="section-num">FASE 01–03</span></div>
+    <div class="phase">
+      <div class="phase-n">01</div>
+      <div><h3>Auditoría del sitio actual</h3>
+        <p>Analizamos las 12 páginas del Google Site oficial. Calificación inicial: <b>5.3/10</b>. Hallazgo crítico: las 5 tarjetas de "Oferta académica" eran enlaces rotos que apuntaban a sí mismas. Contenido clave (requisitos de matrícula, puestos de trabajo) vivía solo en imágenes, ilegible para lectores de pantalla.</p>
+        <span class="tag warn">Bug crítico encontrado</span>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-n">02</div>
+      <div><h3>Investigación y verificación</h3>
+        <p>Cruzamos el sitio actual contra directorios externos, redes sociales y un sitio Google Sites <em>anterior</em> del propio INCO (con "Matrícula 2021" — aún público). Encontramos una contradicción real: el sitio actual dice "más de 80 años de experiencia", pero la fuente más detallada (con cita legal) dice que el INCO nació como ENCO en 1955 y se renombró en 1997. Ningún dato de fundación se publicó sin marcar como pendiente de confirmar.</p>
+        <span class="tag warn">Contradicción sin resolver — reportada, no inventada</span>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-n">03</div>
+      <div><h3>Arquitectura de información</h3>
+        <p>Sitemap nuevo: Institución · Oferta académica · Matrícula · Vida estudiantil · Contacto. Decisión documentada de <em>no</em> crear "Noticias" ni "Galería" todavía — no había contenido real que migrar, y una sección vacía es peor que no tenerla.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Diseño y sistema visual</h2><span class="section-num">FASE 04–05 + rediseño</span></div>
+    <p style="color:var(--text-soft); margin-top:0;">Verde y dorado institucionales, confirmados por el usuario junto con el león como mascota oficial. Tras una primera versión deliberadamente sobria, se aplicó un pase de pulido con microinteracciones a pedido explícito.</p>
+
+    <h3 style="font-size:15px; margin:22px 0 10px;">Color</h3>
+    <div class="swatches">
+      <div class="swatch"><div class="fill" style="background:#1B5E3A"></div><div class="label"><b>Primario</b><span class="mono">#1B5E3A</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#0F3D26"></div><div class="label"><b>Primario oscuro</b><span class="mono">#0F3D26</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#F2B705"></div><div class="label"><b>Dorado</b><span class="mono">#F2B705</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#B8850A"></div><div class="label"><b>Dorado oscuro</b><span class="mono">#B8850A</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#FFDD57"></div><div class="label"><b>Dorado claro</b><span class="mono">#FFDD57</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#FAF9F6; border-bottom:1px solid #E2DFD8"></div><div class="label"><b>Superficie</b><span class="mono">#FAF9F6</span></div></div>
+    </div>
+    <p style="font-size:12.5px; color:var(--ink-faint); margin-top:8px;">El tono dorado de hover (#FFDD57) se creó después de calcular que el dorado base sobre el verde del navbar daba 4.26:1 — insuficiente para AA.</p>
+
+    <h3 style="font-size:15px; margin:26px 0 4px;">Tipografía</h3>
+    <div class="type-row"><span class="fam">Encabezados</span><span class="sample" style="font-family:'Sora',sans-serif; font-weight:700;">Sora — Instituto Nacional de Comercio</span></div>
+    <div class="type-row"><span class="fam">Cuerpo</span><span class="sample" style="font-family:'Inter',sans-serif;">Inter — legibilidad ante todo, en español, para todas las edades</span></div>
+
+    <div class="callout"><b>Corrección de robustez</b> El Hero se animaba con Framer Motion, pero eso deja el título más importante del sitio en <span class="mono">opacity:0</span> hasta que React hidrata — invisible en conexión lenta o sin JS. Se reescribió con animación CSS pura: mismo efecto, cero dependencia de JavaScript para el contenido crítico.</div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Stack técnico</h2><span class="section-num">FASE 06</span></div>
+    <p style="color:var(--text-soft); margin-top:0;">Sitio 100% estático (SSG), sin backend propio — decisión deliberada: no hay lógica de usuario más allá de un formulario externo de matrícula.</p>
+    <div class="pills">
+      <span class="pill">Next.js 16 (App Router)</span>
+      <span class="pill">React 19</span>
+      <span class="pill">TypeScript</span>
+      <span class="pill">Tailwind CSS v3</span>
+      <span class="pill">Framer Motion</span>
+      <span class="pill">Pannellum (360°)</span>
+      <span class="pill">ESLint</span>
+      <span class="pill">Lucide icons</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Sitemap construido</h2><span class="section-num">FASE 07</span></div>
+    <div class="tree">
+      <ul>
+        <li class="root"><span>/</span> <span class="path">Home</span></li>
+        <li class="root"><span>/institucion</span>
+          <ul>
+            <li>Quiénes somos <span class="path">/institucion</span></li>
+            <li>Historia <span class="path">/institucion/historia</span> — sin fecha inventada, solo lo verificado</li>
+            <li>Ubicación <span class="path">/institucion/ubicacion</span></li>
+          </ul>
+        </li>
+        <li class="root"><span>/oferta-academica</span>
+          <ul>
+            <li>5 programas, cada uno con su ruta propia <span class="path">/oferta-academica/[slug]</span></li>
+          </ul>
+        </li>
+        <li class="root"><span>/matricula</span>
+          <ul>
+            <li>Proceso <span class="path">/matricula</span></li>
+            <li>Requisitos por tipo de estudiante (tabs) <span class="path">/matricula/requisitos</span></li>
+            <li>Preguntas frecuentes <span class="path">/matricula/faq</span></li>
+          </ul>
+        </li>
+        <li class="root"><span>/vida-estudiantil</span>
+          <ul><li>5 actividades, cada una con su ruta <span class="path">/vida-estudiantil/[slug]</span></li></ul>
+        </li>
+        <li class="root"><span>/contacto</span></li>
+        <li class="root"><span>/recorrido-virtual</span> <span class="path">noindex — prototipo</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Accesibilidad, SEO y testing</h2><span class="section-num">FASE 08–10</span></div>
+    <div class="checklist">
+      <div class="check done"><div class="box"></div><div class="txt"><b>8 breakpoints probados (320px–1440px)</b><span>Bug real encontrado y corregido: el navbar de escritorio se activaba en 768px sin espacio suficiente.</span></div></div>
+      <div class="check done"><div class="box"></div><div class="txt"><b>Contraste WCAG AA verificado matemáticamente</b><span>2 combinaciones de color fallaban (4.26:1 y 3.12:1) — corregidas, no solo "a ojo".</span></div></div>
+      <div class="check done"><div class="box"></div><div class="txt"><b>Foco de teclado universal</b><span>Anillo de doble contorno visible sobre cualquier fondo, verificado tabulando manualmente.</span></div></div>
+      <div class="check done"><div class="box"></div><div class="txt"><b>Jerarquía de encabezados sin saltos</b><span>H1 único por página; se corrigieron saltos H1→H3 en dos páginas índice.</span></div></div>
+      <div class="check done"><div class="box"></div><div class="txt"><b>Meta description + Open Graph por página</b><span>Antes todas las páginas compartían el mismo texto genérico al compartirse en WhatsApp/Facebook.</span></div></div>
+      <div class="check done"><div class="box"></div><div class="txt"><b>Datos estructurados (Schema.org)</b><span>Solo con datos ya verificados — sin fecha de fundación ni TikTok no confirmado.</span></div></div>
+      <div class="check done"><div class="box"></div><div class="txt"><b>ESLint reparado</b><span>El comando venía roto: Next.js 16 eliminó "next lint" y no había configuración instalada.</span></div></div>
+      <div class="check done"><div class="box"></div><div class="txt"><b>0 enlaces internos rotos</b><span>Verificado con un script que recorre las 23 rutas, no por muestreo manual.</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Fotografía: qué es real y qué es referencia</h2><span class="section-num">extra, a pedido</span></div>
+    <p style="color:var(--text-soft); margin-top:0;">Se reutilizaron fotos que el propio INCO ya publica en su sitio oficial — no son archivos definitivos en alta resolución, pero ya no son banco de imágenes genérico.</p>
+    <div class="photo-grid">
+      <div class="photo-item"><div class="name">Banda de Paz</div><span class="status real"><span class="dot"></span>Foto real del INCO</span></div>
+      <div class="photo-item"><div class="name">Cachiporras</div><span class="status real"><span class="dot"></span>Foto real del INCO</span></div>
+      <div class="photo-item"><div class="name">Danza Folclórica</div><span class="status real"><span class="dot"></span>Foto real del INCO</span></div>
+      <div class="photo-item"><div class="name">Desarrollo de Software</div><span class="status real"><span class="dot"></span>Foto real del INCO</span></div>
+      <div class="photo-item"><div class="name">Modalidades Flexibles</div><span class="status real"><span class="dot"></span>Foto real del INCO</span></div>
+      <div class="photo-item"><div class="name">Administrativo Contable</div><span class="status ref"><span class="dot"></span>Referencia genérica</span></div>
+      <div class="photo-item"><div class="name">Servicios Turísticos</div><span class="status ref"><span class="dot"></span>Referencia genérica</span></div>
+      <div class="photo-item"><div class="name">Bachillerato General</div><span class="status ref"><span class="dot"></span>Referencia genérica</span></div>
+      <div class="photo-item"><div class="name">Danza Moderna</div><span class="status ref"><span class="dot"></span>Referencia genérica</span></div>
+      <div class="photo-item"><div class="name">Deportes</div><span class="status ref"><span class="dot"></span>Referencia genérica</span></div>
+    </div>
+    <p style="font-size:12.5px; color:var(--ink-faint); margin-top:10px;">Las 5 marcadas como referencia solo tenían tablas de malla curricular o gráficos decorativos disponibles para extraer — no fotos de estudiantes.</p>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Pendiente de confirmar con el INCO</h2><span class="section-num">antes de publicar</span></div>
+    <div class="checklist">
+      <div class="check"><div class="box"></div><div class="txt"><b>Fecha de fundación real</b><span>1955/1997 vs. 1975 vs. "80 años" — tres versiones, ninguna confirmada por la dirección.</span></div></div>
+      <div class="check"><div class="box"></div><div class="txt"><b>Costos y gratuidad de la matrícula</b><span>No aparece en ninguna fuente revisada.</span></div></div>
+      <div class="check"><div class="box"></div><div class="txt"><b>Enlace oficial de pre-matrícula</b><span>El sitio actual solo referencia un código QR sin URL verificable.</span></div></div>
+      <div class="check"><div class="box"></div><div class="txt"><b>Fotografías oficiales en alta resolución</b><span>Para reemplazar las 5 fotos de referencia restantes.</span></div></div>
+      <div class="check"><div class="box"></div><div class="txt"><b>Logo del león en vectorial</b><span>Confirmado como mascota oficial, pero solo existe como fotografía/gráfico, no como archivo de marca.</span></div></div>
+      <div class="check"><div class="box"></div><div class="txt"><b>Dominio real</b><span>El sitio usa <span class="mono">inco.edu.sv</span> como marcador de posición en metadata y sitemap.</span></div></div>
+      <div class="check"><div class="box"></div><div class="txt"><b>Cuenta oficial de TikTok</b><span>Existe una cuenta pública, pero no se enlazó sin que el INCO la confirme.</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Dónde vive el código</h2><span class="section-num">referencia</span></div>
+    <pre class="filetree"><b>INCO_WEB/</b>
+├── app/                  <b>26 rutas</b> (institución, oferta académica, matrícula, vida estudiantil, contacto)
+├── components/           Navbar, Footer, Hero, cards, tabs, FAQ, motion/
+├── content/              datos verificados: institucion.ts, contacto.ts, matricula.ts…
+├── public/inco-photos/   las 5 fotos reales reutilizadas del INCO
+├── public/demo-tour/     panoramas de muestra del prototipo 360°
+├── scripts/check-links.mjs   verificador automático de enlaces internos
+└── package.json</pre>
+  </section>
+
+  <footer>
+    Instituto Nacional de Comercio — rework web · bitácora generada a partir de las 12 fases del proyecto más el pase de diseño y fotografía posterior.
+  </footer>
+</div>
