@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { withBasePath } from "@/lib/basePath";
 
 /**
  * Capa de foto del Hero con parallax: se desplaza más lento que el scroll
@@ -16,7 +17,7 @@ export default function HeroParallaxImage({ src, alt = "" }: { src: string; alt?
 
   return (
     <motion.img
-      src={src}
+      src={withBasePath(src)}
       alt={alt}
       style={{ y }}
       className="absolute inset-0 h-full w-full scale-110 object-cover object-center"

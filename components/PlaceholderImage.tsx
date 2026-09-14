@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/basePath";
+
 interface PlaceholderImageProps {
   alt: string;
   className?: string;
@@ -44,7 +46,7 @@ export default function PlaceholderImage({
   src,
 }: PlaceholderImageProps) {
   const seed = seedFrom(alt);
-  const imgSrc = src ?? `https://picsum.photos/seed/${seed}/1200/800`;
+  const imgSrc = src ? withBasePath(src) : `https://picsum.photos/seed/${seed}/1200/800`;
   return (
     <div className={`${ratioClass[ratio]} ${className} relative overflow-hidden rounded-xl`}>
       <img

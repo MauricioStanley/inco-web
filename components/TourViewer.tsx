@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
+import { withBasePath } from "@/lib/basePath";
 
 // Tipos mínimos de la API de Pannellum que usamos (la librería no trae
 // tipados propios ni un paquete @types).
@@ -45,7 +46,7 @@ const config: PannellumConfig = {
   scenes: {
     exterior: {
       type: "equirectangular",
-      panorama: "/demo-tour/scene1.jpg",
+      panorama: withBasePath("/demo-tour/scene1.jpg"),
       hfov: 110,
       pitch: 0,
       yaw: 0,
@@ -55,7 +56,7 @@ const config: PannellumConfig = {
     },
     aula: {
       type: "equirectangular",
-      panorama: "/demo-tour/scene2.jpg",
+      panorama: withBasePath("/demo-tour/scene2.jpg"),
       hfov: 120,
       pitch: 0,
       yaw: 0,
@@ -80,8 +81,12 @@ export default function TourViewer() {
 
   return (
     <div>
-      <link rel="stylesheet" href="/vendor/pannellum/pannellum.css" />
-      <Script src="/vendor/pannellum/pannellum.js" strategy="afterInteractive" onReady={() => setScriptReady(true)} />
+      <link rel="stylesheet" href={withBasePath("/vendor/pannellum/pannellum.css")} />
+      <Script
+        src={withBasePath("/vendor/pannellum/pannellum.js")}
+        strategy="afterInteractive"
+        onReady={() => setScriptReady(true)}
+      />
       <div
         ref={containerRef}
         className="aspect-video w-full overflow-hidden rounded-xl bg-ink shadow-card"

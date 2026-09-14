@@ -14,6 +14,7 @@ import { identidad, mision, vision, videoBienvenidaSrc } from "@/content/institu
 import { cifrasInstitucionales } from "@/content/stats";
 import { testimonios } from "@/content/testimonios";
 import { contacto } from "@/content/contacto";
+import { withBasePath } from "@/lib/basePath";
 import { Phone, MessageCircle, MapPin, GraduationCap, BookOpen, Users } from "lucide-react";
 
 export default function HomePage() {
@@ -85,7 +86,7 @@ export default function HomePage() {
           <div className="md:sticky md:top-24 md:self-start">
             <div className="aspect-[4/5] overflow-hidden rounded-2xl shadow-card-hover">
               <img
-                src="/inco-photos/cachiporras.jpg"
+                src={withBasePath("/inco-photos/cachiporras.jpg")}
                 alt="Estudiantes del INCO en una actividad institucional"
                 className="h-full w-full object-cover"
               />

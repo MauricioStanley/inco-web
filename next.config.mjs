@@ -1,8 +1,8 @@
 // GitHub Pages sirve el repo en /<nombre-del-repo>/, no en la raíz del
-// dominio — basePath/assetPrefix solo se activan en ese build (variable de
-// entorno puesta por el workflow de deploy) para no romper `npm run dev`.
-const isGithubPages = process.env.GITHUB_PAGES === "true";
-const repoName = "inco-web";
+// dominio — basePath/assetPrefix solo se activan cuando el workflow de
+// deploy pone NEXT_PUBLIC_BASE_PATH, para no romper `npm run dev` en local.
+// (Mismo valor que usa `lib/basePath.ts` para los <img src="..."> sueltos.)
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -10,8 +10,8 @@ const nextConfig = {
   // arquitectura de la Fase 6), así que no necesita el servidor Node de
   // `next start` — GitHub Pages solo sirve archivos.
   output: "export",
-  basePath: isGithubPages ? `/${repoName}` : "",
-  assetPrefix: isGithubPages ? `/${repoName}/` : "",
+  basePath,
+  assetPrefix: basePath ? `${basePath}/` : "",
   trailingSlash: true,
   images: { unoptimized: true },
 };
