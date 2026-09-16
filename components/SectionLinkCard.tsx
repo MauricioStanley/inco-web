@@ -15,14 +15,14 @@ export default function SectionLinkCard({ href, icon, title, description }: Sect
   return (
     <TiltCard
       href={href}
-      className="flex h-full flex-col gap-3 rounded-xl border border-border bg-surface-alt p-6 shadow-card transition-shadow duration-300 ease-out hover:shadow-card-hover"
+      className="flex h-full flex-col gap-4 rounded-[1.5rem] bg-primary/[0.045] p-6 ring-1 ring-inset ring-primary/10 transition-colors duration-300 hover:bg-primary/[0.075] sm:p-7"
     >
-      <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+      <span className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/15 bg-surface text-primary shadow-card">
         {icon}
       </span>
-      <h3 className="font-heading text-lg font-semibold text-ink">{title}</h3>
-      <p className="text-sm text-ink-soft">{description}</p>
-      <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-primary">
+      <h3 className="font-heading text-2xl font-semibold leading-tight text-ink">{title}</h3>
+      <p className="text-sm leading-relaxed text-ink-soft">{description}</p>
+      <span className="mt-auto inline-flex items-center gap-2 pt-2 text-sm font-bold text-primary">
         Ver más
         <ArrowRight size={16} aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1" />
       </span>

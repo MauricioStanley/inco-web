@@ -28,8 +28,12 @@ export default function CinematicReveal({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, scale: 0.94, filter: "blur(8px)" }}
-      whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+      initial={false}
+      whileInView={{
+        opacity: [0.72, 1],
+        scale: [0.965, 1],
+        filter: ["blur(7px)", "blur(0px)"],
+      }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ ...springSmooth, delay }}
     >

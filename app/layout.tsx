@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Newsreader } from "next/font/google";
+import { Bodoni_Moda, Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,17 +8,10 @@ import FloatingActions from "@/components/FloatingActions";
 import { identidad } from "@/content/institucion";
 import { contacto } from "@/content/contacto";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-/**
- * Serif editorial para títulos (antes Sora, una sans). Newsreader tiene eje
- * óptico (`opsz`) — el navegador ajusta el trazo automáticamente entre texto
- * y tamaños grandes de display, así que no hace falta una familia aparte
- * para el H1 del Hero.
- */
-const newsreader = Newsreader({
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-body" });
+const bodoni = Bodoni_Moda({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  style: ["normal", "italic"],
+  weight: ["500", "600", "700"],
   variable: "--font-heading",
 });
 
@@ -34,6 +27,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  themeColor: "#f9f9f7",
 };
 
 export const metadata: Metadata = {
@@ -76,8 +70,22 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${inter.variable} ${newsreader.variable}`}>
+    <html lang="es" className={`${manrope.variable} ${bodoni.variable}`}>
       <body className="relative flex min-h-screen flex-col">
+        <div
+          hidden
+          data-design-contract="98c26d3a"
+          dangerouslySetInnerHTML={{
+            __html: `<!--
+THESIS: INCO is shown as a precision future lab built from real student work, refusing the generic institutional hero-plus-card-grid.
+OWN-WORLD: mineral white, bottle green, carbon ink and restrained brass; large photographic lenses, etched rules and satin-glass controls.
+STORY: visitors feel the institution's discipline, discover five real academic paths, and move toward the offer or enrollment.
+FIRST VIEWPORT: monumental “Cuna de campeones” at left, software student at right, primary academic action in immediate reach, Banda de Paz chapter waiting below.
+FORM: Future Lab institucional · Optical Lens, fourth grounded direction, seed 98c26d3a.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+-->`,
+          }}
+        />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <div aria-hidden="true" className="grain-overlay" />
         <a

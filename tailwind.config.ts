@@ -5,31 +5,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: { DEFAULT: "#1B5E3A", dark: "#0F3D26" },
-        accent: { DEFAULT: "#F2B705", dark: "#B8850A", light: "#FFDD57" },
-        ink: { DEFAULT: "#1A1A1A", soft: "#4A4A4A" },
-        surface: { DEFAULT: "#FAF9F6", alt: "#FFFFFF" },
-        border: "#E2DFD8",
+        primary: { DEFAULT: "#176244", dark: "#06271D" },
+        accent: { DEFAULT: "#C6A046", dark: "#927126", light: "#E7D08D" },
+        ink: { DEFAULT: "#101714", soft: "#4E5D56" },
+        surface: { DEFAULT: "#F9F9F7", alt: "#F1F3EF" },
+        border: "#D9DED8",
       },
       fontFamily: {
-        heading: ["var(--font-heading)", "Georgia", "serif"],
-        body: ["var(--font-inter)", "sans-serif"],
+        heading: ["var(--font-heading)", "Baskerville", "serif"],
+        body: ["var(--font-body)", "Arial", "sans-serif"],
       },
       maxWidth: {
-        content: "1180px",
+        content: "1280px",
       },
       boxShadow: {
-        // Sombras teñidas con el verde institucional en vez de negro plano,
-        // para que la profundidad se sienta parte de la marca.
-        card: "0 1px 2px rgba(15,61,38,0.06), 0 8px 24px -12px rgba(15,61,38,0.18)",
-        "card-hover": "0 4px 8px rgba(15,61,38,0.08), 0 20px 40px -14px rgba(15,61,38,0.32)",
-        button: "0 8px 20px -8px rgba(27,94,58,0.45)",
-        gold: "0 8px 20px -8px rgba(184,133,10,0.45)",
+        card: "0 2px 6px rgba(6,39,29,0.06), 0 22px 52px -34px rgba(6,39,29,0.38)",
+        "card-hover": "0 10px 24px rgba(6,39,29,0.10), 0 34px 72px -38px rgba(6,39,29,0.52)",
+        button: "0 14px 30px -16px rgba(6,39,29,0.72)",
+        gold: "0 12px 28px -16px rgba(146,113,38,0.52)",
       },
       keyframes: {
         "fade-in-up": {
-          "0%": { opacity: "0", transform: "translateY(12px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+          "0%": { opacity: "0", transform: "translateY(18px)", filter: "blur(8px)" },
+          "100%": { opacity: "1", transform: "translateY(0)", filter: "blur(0px)" },
         },
         "fade-in": {
           "0%": { opacity: "0" },
@@ -41,7 +39,7 @@ const config: Config = {
         },
       },
       animation: {
-        "fade-in-up": "fade-in-up 0.5s ease-out both",
+        "fade-in-up": "fade-in-up 0.8s cubic-bezier(0.16,1,0.3,1) both",
         "fade-in": "fade-in 0.4s ease-out both",
         "scroll-cue": "scroll-cue 1.8s ease-in-out infinite",
       },

@@ -22,8 +22,12 @@ export default function Reveal({ children, delay = 0, className, direction = "up
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: direction === "up" ? 16 : 0 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={false}
+      whileInView={{
+        opacity: [0.78, 1],
+        y: direction === "up" ? [16, 0] : 0,
+        filter: ["blur(4px)", "blur(0px)"],
+      }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ ...springSmooth, delay }}
     >

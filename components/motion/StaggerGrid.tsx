@@ -10,8 +10,7 @@ const container = {
 };
 
 const item = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: springSmooth },
+  show: { opacity: [0.78, 1], y: [14, 0], transition: springSmooth },
 };
 
 /** Envuelve un grid de tarjetas para que entren en cascada al hacer scroll, en vez de aparecer todas de golpe. */
@@ -23,7 +22,7 @@ export function StaggerGrid({ children, className }: { children: ReactNode; clas
     <motion.div
       className={className}
       variants={container}
-      initial="hidden"
+      initial={false}
       whileInView="show"
       viewport={{ once: true, margin: "-60px" }}
     >

@@ -26,11 +26,11 @@ export default function TiltCard({ href, className = "", children }: TiltCardPro
   const springX = useSpring(px, { stiffness: 300, damping: 30, mass: 0.5 });
   const springY = useSpring(py, { stiffness: 300, damping: 30, mass: 0.5 });
 
-  const rotateX = useTransform(springY, [0, 1], [7, -7]);
-  const rotateY = useTransform(springX, [0, 1], [-7, 7]);
+  const rotateX = useTransform(springY, [0, 1], [2.5, -2.5]);
+  const rotateY = useTransform(springX, [0, 1], [-2.5, 2.5]);
   const glareX = useTransform(springX, [0, 1], ["0%", "100%"]);
   const glareY = useTransform(springY, [0, 1], ["0%", "100%"]);
-  const glare = useMotionTemplate`radial-gradient(circle at ${glareX} ${glareY}, rgba(255,255,255,0.35), transparent 55%)`;
+  const glare = useMotionTemplate`radial-gradient(circle at ${glareX} ${glareY}, rgba(255,255,255,0.24), transparent 48%)`;
 
   function handlePointerMove(e: PointerEvent<HTMLAnchorElement>) {
     if (e.pointerType !== "mouse") return;
@@ -48,8 +48,8 @@ export default function TiltCard({ href, className = "", children }: TiltCardPro
     <MotionLink
       href={href}
       className={`group relative ${className}`}
-      style={{ rotateX, rotateY, transformPerspective: 900 }}
-      whileHover={{ y: -6 }}
+      style={{ rotateX, rotateY, transformPerspective: 1100 }}
+      whileHover={{ y: -3 }}
       whileTap={{ scale: 0.985 }}
       transition={springSmooth}
       onPointerMove={handlePointerMove}

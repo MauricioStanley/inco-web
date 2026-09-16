@@ -2,3 +2,8 @@ node_modules
 .next
 out/
 .env*.local
+
+# Local design exploration and visual QA captures
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/capture.mjs

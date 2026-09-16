@@ -1,4 +1,5 @@
 import { withBasePath } from "@/lib/basePath";
+import Image from "next/image";
 
 interface PlaceholderImageProps {
   alt: string;
@@ -49,13 +50,14 @@ export default function PlaceholderImage({
   const imgSrc = src ? withBasePath(src) : `https://picsum.photos/seed/${seed}/1200/800`;
   return (
     <div className={`${ratioClass[ratio]} ${className} relative overflow-hidden rounded-xl`}>
-      <img
+      <Image
         src={imgSrc}
         alt={alt}
-        className={`h-full w-full object-cover ${
+        fill
+        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        className={`object-cover ${
           zoomOnGroupHover ? "transition-transform duration-500 ease-out group-hover:scale-[1.04]" : ""
         }`}
-        loading="lazy"
       />
       <span className="absolute bottom-2 left-2 rounded-md bg-ink/80 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
         {src ? "Foto: sitio oficial del INCO" : "Imagen de referencia — no oficial"}

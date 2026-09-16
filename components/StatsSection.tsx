@@ -11,11 +11,7 @@ function Cifra({ valor, sufijo, etiqueta }: CifraInstitucional) {
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    if (!enVista) return;
-    if (reduceMotion) {
-      setDisplay(valor);
-      return;
-    }
+    if (!enVista || reduceMotion) return;
     const duracion = 900;
     const inicio = performance.now();
     let frame: number;
@@ -29,10 +25,12 @@ function Cifra({ valor, sufijo, etiqueta }: CifraInstitucional) {
     return () => cancelAnimationFrame(frame);
   }, [enVista, reduceMotion, valor]);
 
+  const visibleValue = reduceMotion && enVista ? valor : display;
+
   return (
     <div ref={ref} className="min-w-[140px] flex-1 px-6 text-center first:pl-0 last:pr-0 md:px-8">
       <p className="font-heading text-4xl font-semibold text-primary md:text-5xl">
-        {display}
+        {visibleValue}
         {sufijo}
       </p>
       <p className="mt-2 text-sm text-ink-soft">{etiqueta}</p>

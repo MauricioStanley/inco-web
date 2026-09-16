@@ -13,9 +13,9 @@ interface ButtonProps {
 }
 
 const variants: Record<NonNullable<ButtonProps["variant"]>, string> = {
-  primary: "bg-primary text-white hover:bg-primary-dark hover:shadow-button",
-  secondary: "bg-accent text-ink hover:bg-accent-dark hover:shadow-gold",
-  ghost: "border border-white text-white hover:bg-white/10",
+  primary: "bg-primary text-white shadow-button hover:bg-primary-dark hover:shadow-[0_18px_36px_-18px_rgba(6,39,29,0.8)]",
+  secondary: "bg-accent text-primary-dark shadow-gold hover:bg-accent-light",
+  ghost: "border border-white/32 bg-white/[0.04] text-white backdrop-blur-md hover:border-white/55 hover:bg-white/10",
 };
 
 const MotionLink = motion.create(Link);
@@ -27,11 +27,11 @@ const MotionLink = motion.create(Link);
  * sin saltos (principio de interrumpibilidad de Apple).
  */
 export default function Button({ href, children, variant = "primary", external = false }: ButtonProps) {
-  const className = `inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg px-6 py-3 text-base font-semibold transition-colors duration-200 ${variants[variant]}`;
+  const className = `inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-[background-color,border-color,box-shadow] duration-300 ${variants[variant]}`;
 
   const motionProps = {
-    whileHover: { y: -2 },
-    whileTap: { scale: 0.97, y: 0 },
+    whileHover: { y: -2, scale: 1.01 },
+    whileTap: { scale: 0.975, y: 0 },
     transition: springSnappy,
   } as const;
 

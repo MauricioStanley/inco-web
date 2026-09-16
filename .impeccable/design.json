@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-16T02:18:25.0295805Z",
+  "title": "Design System: Instituto Nacional de Comercio",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Verde Botella INCO",
+        "canonical": "#176244",
+        "tonalRamp": ["oklch(15% 0.08 159)", "oklch(26% 0.08 159)", "oklch(38% 0.08 159)", "oklch(50% 0.08 159)", "oklch(62% 0.08 159)", "oklch(74% 0.08 159)", "oklch(86% 0.08 159)", "oklch(95% 0.08 159)"]
+      },
+      "primary-dark": {
+        "role": "primary",
+        "displayName": "Verde Cámara Oscura",
+        "canonical": "#06271D",
+        "tonalRamp": ["oklch(15% 0.045 164)", "oklch(26% 0.045 164)", "oklch(38% 0.045 164)", "oklch(50% 0.045 164)", "oklch(62% 0.045 164)", "oklch(74% 0.045 164)", "oklch(86% 0.045 164)", "oklch(95% 0.045 164)"]
+      },
+      "brass": {
+        "role": "secondary",
+        "displayName": "Latón Ceremonial",
+        "canonical": "#C6A046",
+        "tonalRamp": ["oklch(15% 0.105 85)", "oklch(26% 0.105 85)", "oklch(38% 0.105 85)", "oklch(50% 0.105 85)", "oklch(62% 0.105 85)", "oklch(74% 0.105 85)", "oklch(86% 0.105 85)", "oklch(95% 0.105 85)"]
+      },
+      "brass-dark": {
+        "role": "secondary",
+        "displayName": "Latón Grabado",
+        "canonical": "#927126",
+        "tonalRamp": ["oklch(15% 0.095 85)", "oklch(26% 0.095 85)", "oklch(38% 0.095 85)", "oklch(50% 0.095 85)", "oklch(62% 0.095 85)", "oklch(74% 0.095 85)", "oklch(86% 0.095 85)", "oklch(95% 0.095 85)"]
+      },
+      "brass-light": {
+        "role": "secondary",
+        "displayName": "Latón Iluminado",
+        "canonical": "#E7D08D",
+        "tonalRamp": ["oklch(15% 0.075 88)", "oklch(26% 0.075 88)", "oklch(38% 0.075 88)", "oklch(50% 0.075 88)", "oklch(62% 0.075 88)", "oklch(74% 0.075 88)", "oklch(86% 0.075 88)", "oklch(95% 0.075 88)"]
+      },
+      "carbon-ink": {
+        "role": "neutral",
+        "displayName": "Tinta Carbón",
+        "canonical": "#101714",
+        "tonalRamp": ["oklch(15% 0.014 154)", "oklch(26% 0.014 154)", "oklch(38% 0.014 154)", "oklch(50% 0.014 154)", "oklch(62% 0.014 154)", "oklch(74% 0.014 154)", "oklch(86% 0.014 154)", "oklch(95% 0.014 154)"]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Tinta Suave",
+        "canonical": "#4E5D56",
+        "tonalRamp": ["oklch(15% 0.02 154)", "oklch(26% 0.02 154)", "oklch(38% 0.02 154)", "oklch(50% 0.02 154)", "oklch(62% 0.02 154)", "oklch(74% 0.02 154)", "oklch(86% 0.02 154)", "oklch(95% 0.02 154)"]
+      },
+      "mineral-white": {
+        "role": "neutral",
+        "displayName": "Blanco Mineral",
+        "canonical": "#F9F9F7",
+        "tonalRamp": ["oklch(15% 0.005 110)", "oklch(26% 0.005 110)", "oklch(38% 0.005 110)", "oklch(50% 0.005 110)", "oklch(62% 0.005 110)", "oklch(74% 0.005 110)", "oklch(86% 0.005 110)", "oklch(95% 0.005 110)"]
+      },
+      "mineral-alt": {
+        "role": "neutral",
+        "displayName": "Mineral Alterno",
+        "canonical": "#F1F3EF",
+        "tonalRamp": ["oklch(15% 0.008 140)", "oklch(26% 0.008 140)", "oklch(38% 0.008 140)", "oklch(50% 0.008 140)", "oklch(62% 0.008 140)", "oklch(74% 0.008 140)", "oklch(86% 0.008 140)", "oklch(95% 0.008 140)"]
+      },
+      "etched-border": {
+        "role": "neutral",
+        "displayName": "Regla Grabada",
+        "canonical": "#D9DED8",
+        "tonalRamp": ["oklch(15% 0.012 140)", "oklch(26% 0.012 140)", "oklch(38% 0.012 140)", "oklch(50% 0.012 140)", "oklch(62% 0.012 140)", "oklch(74% 0.012 140)", "oklch(86% 0.012 140)", "oklch(95% 0.012 140)"]
+      },
+      "footer-green": {
+        "role": "neutral",
+        "displayName": "Verde de Archivo",
+        "canonical": "#041F17",
+        "tonalRamp": ["oklch(15% 0.035 163)", "oklch(26% 0.035 163)", "oklch(38% 0.035 163)", "oklch(50% 0.035 163)", "oklch(62% 0.035 163)", "oklch(74% 0.035 163)", "oklch(86% 0.035 163)", "oklch(95% 0.035 163)"]
+      },
+      "pure-white": {
+        "role": "neutral",
+        "displayName": "Blanco Óptico",
+        "canonical": "#FFFFFF",
+        "tonalRamp": ["oklch(15% 0 0)", "oklch(26% 0 0)", "oklch(38% 0 0)", "oklch(50% 0 0)", "oklch(62% 0 0)", "oklch(74% 0 0)", "oklch(86% 0 0)", "oklch(95% 0 0)"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display monumental",
+        "purpose": "Lema y momentos de identidad de máxima escala."
+      },
+      "headline": {
+        "displayName": "Titular de capítulo",
+        "purpose": "Aperturas editoriales amplias de dos o tres líneas."
+      },
+      "title": {
+        "displayName": "Título editorial",
+        "purpose": "Programas, rutas y subtítulos con autoridad contenida."
+      },
+      "body": {
+        "displayName": "Cuerpo",
+        "purpose": "Explicaciones y contenido institucional de lectura sostenida."
+      },
+      "action": {
+        "displayName": "Acción",
+        "purpose": "Botones y enlaces decisivos."
+      },
+      "label": {
+        "displayName": "Etiqueta técnica",
+        "purpose": "Categorías, datos y señales en mayúsculas espaciadas."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-ambient",
+        "value": "0 2px 6px rgba(6,39,29,0.06), 0 22px 52px -34px rgba(6,39,29,0.38)",
+        "purpose": "Profundidad ambiental de lentes y superficies fotográficas."
+      },
+      {
+        "name": "card-hover",
+        "value": "0 10px 24px rgba(6,39,29,0.10), 0 34px 72px -38px rgba(6,39,29,0.52)",
+        "purpose": "Respuesta elevada de una superficie realmente interactiva."
+      },
+      {
+        "name": "button-lift",
+        "value": "0 14px 30px -16px rgba(6,39,29,0.72)",
+        "purpose": "Elevación compacta de acciones primarias."
+      },
+      {
+        "name": "brass-glow",
+        "value": "0 12px 28px -16px rgba(146,113,38,0.52)",
+        "purpose": "Profundidad cálida de acciones secundarias en latón."
+      },
+      {
+        "name": "satin-nav-scrolled",
+        "value": "0 14px 44px -34px rgba(6,39,29,0.55), inset 0 -1px 0 rgba(255,255,255,0.72)",
+        "purpose": "Separa la navegación del contenido sólo después del scroll."
+      },
+      {
+        "name": "optical-plaque",
+        "value": "0 22px 60px -30px rgba(6,39,29,0.85)",
+        "purpose": "Fija placas translúcidas sobre fotografía en movimiento."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-optical",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Revelados, barridos y cambios de foco."
+      },
+      {
+        "name": "state-standard",
+        "value": "300ms ease",
+        "purpose": "Color, borde y sombra en estados de navegación y controles."
+      },
+      {
+        "name": "spring-snappy",
+        "value": "spring 250ms bounce 0",
+        "purpose": "Tap y elevación de botones sin rebote."
+      },
+      {
+        "name": "spring-smooth",
+        "value": "spring 350ms bounce 0",
+        "purpose": "Apertura y cierre del menú móvil."
+      },
+      {
+        "name": "spring-gesture",
+        "value": "spring 400ms bounce 0.2",
+        "purpose": "Sólo para gestos que ya contienen momentum."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal verde, táctil y compacta.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Explorar la oferta <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"19\" height=\"19\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn-primary { display:inline-flex; min-height:48px; align-items:center; justify-content:center; gap:.65rem; border:0; border-radius:999px; padding:.75rem 1.5rem; color:#fff; background:var(--green, #176244); box-shadow:0 14px 30px -16px rgba(6,39,29,.72), inset 0 1px 0 rgba(255,255,255,.22); font:700 .875rem/1.25 Manrope,Arial,sans-serif; text-decoration:none; transition:transform 260ms cubic-bezier(.16,1,.3,1), background-color 260ms ease, box-shadow 260ms ease; } .ds-btn-primary:hover { transform:translateY(-2px); background:var(--green-deep, #06271d); box-shadow:0 22px 44px -20px rgba(6,39,29,.82); } .ds-btn-primary:active { transform:translateY(0) scale(.98); } .ds-btn-primary:focus-visible { outline:2px solid var(--page, #f9f9f7); outline-offset:2px; box-shadow:0 0 0 5px rgba(23,98,68,.9); }"
+    },
+    {
+      "name": "Secondary Brass Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acción secundaria de contacto con énfasis ceremonial.",
+      "html": "<button class=\"ds-btn-secondary\" type=\"button\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z\"/></svg>Llamar</button>",
+      "css": ".ds-btn-secondary { display:inline-flex; min-height:48px; align-items:center; justify-content:center; gap:.55rem; border:0; border-radius:999px; padding:.75rem 1.5rem; color:var(--green-deep, #06271d); background:var(--brass, #c6a046); box-shadow:0 12px 28px -16px rgba(146,113,38,.52); font:700 .875rem/1.25 Manrope,Arial,sans-serif; cursor:pointer; transition:transform 260ms cubic-bezier(.16,1,.3,1), background-color 260ms ease; } .ds-btn-secondary:hover { transform:translateY(-2px); background:#e7d08d; } .ds-btn-secondary:active { transform:scale(.975); } .ds-btn-secondary:focus-visible { outline:2px solid #fff; outline-offset:2px; box-shadow:0 0 0 5px rgba(23,98,68,.9); }"
+    },
+    {
+      "name": "Ghost Glass Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Acción de apoyo translúcida para campos verdes.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M21 11.5a8.4 8.4 0 0 1-9 8.4 9.8 9.8 0 0 1-4.2-1L3 20l1.2-4.3A8.4 8.4 0 1 1 21 11.5z\"/></svg>WhatsApp</a>",
+      "css": ".ds-btn-ghost { display:inline-flex; min-height:48px; align-items:center; justify-content:center; gap:.55rem; border:1px solid rgba(255,255,255,.32); border-radius:999px; padding:.75rem 1.5rem; color:#fff; background:rgba(255,255,255,.04); backdrop-filter:blur(12px); font:700 .875rem/1.25 Manrope,Arial,sans-serif; text-decoration:none; transition:transform 260ms cubic-bezier(.16,1,.3,1), border-color 300ms ease, background-color 300ms ease; } .ds-btn-ghost:hover { transform:translateY(-2px); border-color:rgba(255,255,255,.55); background:rgba(255,255,255,.1); } .ds-btn-ghost:active { transform:scale(.975); } .ds-btn-ghost:focus-visible { outline:2px solid #f9f9f7; outline-offset:2px; box-shadow:0 0 0 5px rgba(23,98,68,.9); }"
+    },
+    {
+      "name": "Editorial Text Link",
+      "kind": "custom",
+      "refersTo": "text-link",
+      "description": "Enlace fuerte con regla de latón extensible.",
+      "html": "<a class=\"ds-text-link\" href=\"#\">Proceso de matrícula<span aria-hidden=\"true\"></span></a>",
+      "css": ".ds-text-link { position:relative; display:inline-flex; align-items:center; gap:.5rem; padding:.45rem 0; color:var(--green-deep, #06271d); font:700 .875rem/1.25 Manrope,Arial,sans-serif; text-decoration:none; } .ds-text-link span { position:absolute; right:0; bottom:.25rem; left:0; height:1px; transform:scaleX(.32); transform-origin:left; background:var(--brass, #c6a046); transition:transform 380ms cubic-bezier(.16,1,.3,1); } .ds-text-link:hover span, .ds-text-link:focus-visible span { transform:scaleX(1); } .ds-text-link:focus-visible { outline:2px solid #f9f9f7; outline-offset:2px; border-radius:.35rem; box-shadow:0 0 0 5px rgba(23,98,68,.9); }"
+    },
+    {
+      "name": "Satin Navigation",
+      "kind": "nav",
+      "refersTo": "nav-satin",
+      "description": "Barra institucional de vidrio satinado con un único CTA.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navegación principal\"><a class=\"ds-nav-brand\" href=\"#\"><strong>INCO</strong><i></i><span>INSTITUTO NACIONAL<br>DE COMERCIO</span></a><div class=\"ds-nav-links\"><a class=\"ds-nav-active\" href=\"#\">Inicio</a><a href=\"#\">Oferta académica</a><a href=\"#\">Vida estudiantil</a></div><a class=\"ds-nav-cta\" href=\"#\">Matrícula ↗</a></nav>",
+      "css": ".ds-nav { display:flex; min-height:76px; align-items:center; justify-content:space-between; gap:1.5rem; padding:0 2.5rem; color:var(--green-deep, #06271d); background:color-mix(in srgb, var(--page, #f9f9f7) 78%, transparent); border-bottom:1px solid rgba(6,39,29,.08); box-shadow:inset 0 -1px 0 rgba(255,255,255,.5); backdrop-filter:blur(20px) saturate(145%); font-family:Manrope,Arial,sans-serif; } .ds-nav a { color:inherit; text-decoration:none; } .ds-nav-brand { display:flex; align-items:center; gap:.8rem; } .ds-nav-brand strong { font:700 1.72rem/1 'Bodoni Moda',Baskerville,serif; letter-spacing:-.04em; } .ds-nav-brand i { width:1px; height:2rem; background:rgba(198,160,70,.7); } .ds-nav-brand span { font-size:.625rem; font-weight:700; line-height:1.35; letter-spacing:.16em; } .ds-nav-links { display:flex; gap:1rem; font-size:.8125rem; font-weight:600; } .ds-nav-links a { position:relative; padding:.75rem .25rem; opacity:.68; } .ds-nav-links a:hover { color:var(--green, #176244); opacity:1; } .ds-nav-links .ds-nav-active { opacity:1; } .ds-nav-links .ds-nav-active::after { position:absolute; right:.25rem; bottom:.35rem; left:.25rem; height:1px; background:#927126; content:''; } .ds-nav-cta { border-radius:999px; padding:.75rem 1.25rem; color:#fff !important; background:var(--green, #176244); font-size:.875rem; font-weight:700; } .ds-nav a:focus-visible { outline:2px solid #f9f9f7; outline-offset:2px; box-shadow:0 0 0 5px rgba(23,98,68,.9); } @media (max-width:700px) { .ds-nav { padding:0 1.5rem; } .ds-nav-links, .ds-nav-brand span, .ds-nav-brand i { display:none; } }"
+    },
+    {
+      "name": "Optical Program Plaque",
+      "kind": "custom",
+      "refersTo": "program-plaque",
+      "description": "Placa informativa translúcida sobre fotografía documental.",
+      "html": "<div class=\"ds-program-plaque\"><span><small>PROGRAMA TÉCNICO</small><strong>Desarrollo de Software</strong></span><b>3 años</b></div>",
+      "css": ".ds-program-plaque { display:flex; width:min(21rem, 100%); align-items:center; justify-content:space-between; gap:1rem; border:1px solid rgba(255,255,255,.35); border-radius:1.1rem; padding:1rem 1.25rem; color:#fff; background:rgba(6,39,29,.76); box-shadow:0 22px 60px -30px rgba(6,39,29,.85); backdrop-filter:blur(20px); font-family:Manrope,Arial,sans-serif; } .ds-program-plaque span { display:grid; gap:.3rem; } .ds-program-plaque small { font-size:.75rem; letter-spacing:.16em; opacity:.82; } .ds-program-plaque strong { font-size:1rem; font-weight:600; } .ds-program-plaque b { flex:none; color:#e7d08d; font-size:.875rem; font-weight:500; } .ds-program-plaque:focus-within { outline:2px solid #f9f9f7; outline-offset:2px; box-shadow:0 0 0 5px rgba(23,98,68,.9); }"
+    },
+    {
+      "name": "Guided Path Row",
+      "kind": "custom",
+      "refersTo": "guided-path-row",
+      "description": "Ruta editorial dividida por reglas en lugar de una tarjeta.",
+      "html": "<a class=\"ds-path-row\" href=\"#\"><strong>Quiero elegir un bachillerato</strong><span>Responde cuatro preguntas y descubre qué opción encaja mejor contigo.</span><i><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></i></a>",
+      "css": ".ds-path-row { display:grid; grid-template-columns:1fr 1.2fr auto; align-items:center; gap:2rem; border-top:1px solid rgba(23,98,68,.15); padding:1.75rem 0; color:var(--green-deep, #06271d); background:var(--page, #f9f9f7); text-decoration:none; font-family:Manrope,Arial,sans-serif; } .ds-path-row strong { font:600 1.5rem/1.25 'Bodoni Moda',Baskerville,serif; } .ds-path-row span { color:#4e5d56; font-size:.875rem; line-height:1.65; } .ds-path-row i { display:flex; width:3rem; height:3rem; align-items:center; justify-content:center; border:1px solid rgba(23,98,68,.2); border-radius:999px; color:var(--green, #176244); transition:transform 300ms ease, color 300ms ease, background 300ms ease, border-color 300ms ease; } .ds-path-row:hover i, .ds-path-row:focus-visible i { transform:translateX(.25rem); border-color:var(--green, #176244); color:#fff; background:var(--green, #176244); } .ds-path-row:focus-visible { outline:2px solid #f9f9f7; outline-offset:2px; box-shadow:0 0 0 5px rgba(23,98,68,.9); } @media (max-width:700px) { .ds-path-row { grid-template-columns:1fr auto; gap:.75rem; } .ds-path-row span { grid-column:1 / -1; } .ds-path-row i { grid-column:2; grid-row:1; } }"
+    },
+    {
+      "name": "Contact Future Panel",
+      "kind": "custom",
+      "refersTo": "contact-panel",
+      "description": "Panel de cierre oscuro que concentra dirección y siguientes acciones.",
+      "html": "<section class=\"ds-contact-panel\"><div><h2>Hablemos de tu futuro</h2><p>Final Calle Campos, Avenida Barberena, San Jacinto, San Salvador.</p></div><div class=\"ds-contact-actions\"><a href=\"#\">Llamar</a><a class=\"ds-contact-ghost\" href=\"#\">WhatsApp</a></div></section>",
+      "css": ".ds-contact-panel { display:grid; grid-template-columns:1.25fr .75fr; align-items:end; gap:2.5rem; overflow:hidden; border-radius:2rem; padding:4rem; color:#fff; background:radial-gradient(circle at 16% 4%, rgba(231,208,141,.16), transparent 34%), radial-gradient(circle at 94% 96%, rgba(255,255,255,.08), transparent 28%), var(--green-deep, #06271d); box-shadow:0 36px 80px -46px rgba(6,39,29,.8); } .ds-contact-panel h2 { max-width:12ch; margin:0; font:600 clamp(2.8rem,5vw,5.25rem)/.94 'Bodoni Moda',Baskerville,serif; letter-spacing:-.035em; } .ds-contact-panel p { max-width:38rem; margin:1.5rem 0 0; color:rgba(255,255,255,.72); font:400 1rem/1.65 Manrope,Arial,sans-serif; } .ds-contact-actions { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.75rem; } .ds-contact-actions a { border-radius:999px; padding:.8rem 1.5rem; color:var(--green-deep, #06271d); background:var(--brass, #c6a046); font:700 .875rem/1.25 Manrope,Arial,sans-serif; text-decoration:none; transition:transform 260ms cubic-bezier(.16,1,.3,1); } .ds-contact-actions .ds-contact-ghost { border:1px solid rgba(255,255,255,.32); color:#fff; background:rgba(255,255,255,.04); backdrop-filter:blur(12px); } .ds-contact-actions a:hover { transform:translateY(-2px); } .ds-contact-actions a:focus-visible { outline:2px solid #f9f9f7; outline-offset:2px; box-shadow:0 0 0 5px rgba(23,98,68,.9); } @media (max-width:700px) { .ds-contact-panel { grid-template-columns:1fr; padding:2.5rem 1.5rem; } .ds-contact-actions { justify-content:flex-start; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El Laboratorio Óptico Institucional",
+    "overview": "INCO se presenta como una institución de precisión construida con evidencia real de sus estudiantes. El sistema combina la disciplina de un laboratorio futuro con el orgullo de una institución pública: blanco mineral, verde botella, tinta carbón y latón contenido forman un entorno luminoso donde la fotografía documental es la prueba, no el adorno.\n\nLa interfaz evita el repertorio escolar genérico de hero promocional y cuadrícula de tarjetas. En su lugar usa grandes lentes fotográficas, secuencias editoriales, reglas grabadas, controles de vidrio satinado y una jerarquía tipográfica monumental. La densidad es serena y la sofisticación siempre deja visibles la información, los estados y la siguiente acción.",
+    "keyCharacteristics": [
+      "Evidencia estudiantil real a escala protagonista.",
+      "Jerarquía editorial monumental con soporte sans limpio.",
+      "Blanco mineral, verde botella, tinta carbón y latón usado con moderación.",
+      "Reglas finas y secuencias abiertas en lugar de rejillas de tarjetas repetidas.",
+      "Profundidad óptica mediante recorte, desenfoque, superposición y vidrio satinado.",
+      "Movimiento continuo, sobrio e interrumpible que conserva una experiencia estática completa."
+    ],
+    "rules": [
+      {
+        "name": "The Restrained Brass Rule",
+        "body": "El latón señala jerarquía o ceremonia; nunca domina un capítulo completo ni compite con la fotografía.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mineral Ground Rule",
+        "body": "Las superficies claras parten del blanco mineral; el blanco puro se reserva para contraste sobre verde y para reflejos ópticos.",
+        "section": "colors"
+      },
+      {
+        "name": "The Monument and Instrument Rule",
+        "body": "Bodoni habla como monumento; Manrope funciona como instrumento. No intercambiar sus responsabilidades.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tight Display Rule",
+        "body": "Los grandes titulares usan líneas compactas y tracking negativo; nunca se convierten en bloques estrechos de muchas líneas.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sequence Over Grid Rule",
+        "body": "Cuando varias opciones compiten por atención, usar una secuencia editorial con reglas y un foco fotográfico compartido antes que una cuadrícula de tarjetas equivalentes.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Until Optical Rule",
+        "body": "Una superficie permanece plana salvo que represente una lente, un control accionable o una capa de vidrio sobre evidencia fotográfica.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Green Shadow Rule",
+        "body": "La profundidad se tiñe con el verde oscuro institucional; se evitan sombras negras genéricas y halos decorativos.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Scale Determines Radius Rule",
+        "body": "Las superficies grandes reciben curvas amplias o ningún radio; los controles pequeños usan cápsulas sólo cuando mejoran la ergonomía.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do hacer que la fotografía real de estudiantes sea la evidencia protagonista de cada capítulo importante.",
+      "Do usar reglas verdes finas, cambios tonales y espacio negativo para organizar opciones relacionadas.",
+      "Do reservar el latón para estados activos, datos selectos, subrayados y acciones secundarias.",
+      "Do mantener una siguiente acción evidente y un foco visible de alto contraste en cualquier tamaño de pantalla.",
+      "Do reducir el movimiento y la transparencia a una composición estática completa cuando el sistema lo solicite."
+    ],
+    "donts": [
+      "Don't volver al hero institucional genérico seguido por una cuadrícula de tarjetas equivalentes.",
+      "Don't encerrar cada bloque de contenido en una tarjeta blanca flotante con sombra gris.",
+      "Don't usar fotografía de stock, claims inventados o adornos abstractos cuando existe evidencia real del INCO.",
+      "Don't convertir el latón en un fondo dominante ni usar múltiples acentos saturados en una misma vista.",
+      "Don't usar Bodoni para texto funcional pequeño ni Manrope para reemplazar la voz monumental de los grandes titulares."
+    ]
+  }
+}
